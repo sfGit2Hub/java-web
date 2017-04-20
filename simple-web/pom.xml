@@ -4,9 +4,13 @@
     <groupId>com.java.web</groupId>
     <artifactId>simple-web</artifactId>
     <packaging>war</packaging>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0</version>
     <name>simple-web</name>
-    <url>http://maven.apache.org</url>
+
+    <properties>
+        <spring.version>4.2.5.RELEASE</spring.version>
+        <mybatis.version>3.2.6</mybatis.version>
+    </properties>
 
     <build>
         <finalName>simple-web</finalName>
@@ -50,5 +54,71 @@
             <artifactId>tomcat-embed-core</artifactId>
             <version>8.5.11</version>
         </dependency>
+
+
+        <!-- Spring Dependencies START -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-aop</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- Spring Dependencies END -->
+
+        <!--MyBatis START-->
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mybatis</groupId>
+            <artifactId>mybatis-spring</artifactId>
+            <version>1.3.0</version>
+        </dependency>
+        <!--MyBatis END-->
+
+        <!-- MysqlConnector START-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>5.1.30</version>
+        </dependency>
+        <!-- MysqlConnector END-->
+
+        <!-- Datasource Druid START-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>druid</artifactId>
+            <version>1.0.27</version>
+        </dependency>
+        <!--Datasource druid END-->
+
+        <!--JSON SUPPORT START-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.23</version>
+        </dependency>
+        <!--JSON SUPPORT END-->
     </dependencies>
 </project>
