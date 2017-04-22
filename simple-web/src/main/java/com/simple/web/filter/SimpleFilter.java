@@ -11,7 +11,8 @@ import java.io.PrintWriter;
 /**
  * Created by SF on 2017/3/30.
  */
-@WebFilter(value = "/simpleFilter", urlPatterns = "/simple")
+@WebFilter(
+        urlPatterns = "/simple", filterName = "simpleFilter", servletNames = "simpleServlet")
 public class SimpleFilter extends HttpServlet implements Filter {
     private FilterConfig config;
 
@@ -24,10 +25,11 @@ public class SimpleFilter extends HttpServlet implements Filter {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
             throws IOException, ServletException {
         HttpSession session = ((HttpServletRequest) request).getSession();
-        response.setCharacterEncoding("utf-8");
+        response.setCharacterEncoding("UTF-8");
+
         if (session.getAttribute("user") == null) {
             PrintWriter out = response.getWriter();
-            out.print("<script>alert('请登录！');location.href='../login1.htm'</script>");
+            out.print("<script>alert('请登录！');location.href='../'</script>");
         } else {
 //        pass the request along the filter chain
             chain.doFilter(request, response);
