@@ -10,7 +10,7 @@ CREATE TABLE items (
 
 /*Table structure for table `orderdetail` */
 
-CREATE TABLE orderdetail (
+CREATE TABLE order_detail (
   id INT NOT NULL AUTO_INCREMENT,
  orders_id INT NOT NULL COMMENT '订单id',
   items_id INT NOT NULL COMMENT '商品id',
