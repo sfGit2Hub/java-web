@@ -1,21 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper
-        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!-- namespace命名空间,作用就是对sql进行分类化的管理,理解为sql隔离
     注意:使用mapper代理开发时，namespace有特殊作用,namespace等于mapper接口地址
  -->
 <mapper namespace="com.simple.web.mapper.OrdersCustomMapper">
     <!-- 查询订单，关联查询用户信息 -->
     <select id="findOrdersUser" resultType="com.simple.web.entity.OrdersCustom">
-        SELECT t1.*,
-        t2.username,
-        t2.sex,
-        t2.address
-        FROM
-        orders t1,
-        t_user t2
-        WHERE t1.user_id=t2.id
+        SELECT t1.*, t2.username, t2.sex, t2.address FROM orders t1, t_user t2 WHERE t1.user_id = t2.id
     </select>
 
     <!-- 定义查询订单关联用户的 resultMap,将整个的查询结果映射到com.mybatis.entity.Orders中 -->
@@ -28,7 +19,7 @@
                 则这个配置应为<id column="orders_id" property="ordersId"/>,类似hibernate实体映射文件配置)。
         -->
         <id column="id" property="id"/>
-        <result column="user_id" property="userid"/>
+        <result column="user_id" property="userId"/>
         <result column="number" property="number"/>
         <result column="createtime" property="createTime"/>
         <result column="note" property="note"/>

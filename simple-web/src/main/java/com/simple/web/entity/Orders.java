@@ -10,7 +10,7 @@ public class Orders {
     /** 主键订单Id */
     private Integer id;
     /** 下单用户id */
-    private Integer userid;
+    private Integer userId;
     /** 订单号 */
     private String number;
     /** 创建订单时间 */
@@ -31,12 +31,12 @@ public class Orders {
         return this;
     }
 
-    public Integer getUserid() {
-        return userid;
+    public Integer getUserId() {
+        return userId;
     }
 
-    public Orders setUserid(Integer userid) {
-        this.userid = userid;
+    public Orders setUserId(Integer userId) {
+        this.userId = userId;
         return this;
     }
 
