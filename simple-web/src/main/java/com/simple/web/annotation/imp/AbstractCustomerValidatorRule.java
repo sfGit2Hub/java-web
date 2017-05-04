@@ -13,7 +13,7 @@ import java.lang.reflect.Method;
 /**
  * Created by SF on 2017/4/27.
  */
-public abstract class AbastractCustomerValidatorRule implements CustomerValidatorRule{
+public abstract class AbstractCustomerValidatorRule implements CustomerValidatorRule{
     @Override
     public abstract boolean support(Annotation annotation);
 
@@ -25,14 +25,14 @@ public abstract class AbastractCustomerValidatorRule implements CustomerValidato
         Method reader = propertyDescriptor.getReadMethod();
         Object property = reader.invoke(target);
         this.validProperty(annotation, property, new PostHandler() {
-            public void postHanle(String errorCode, String message) {
+            public void postHandle(String errorCode, String message) {
                 errors.rejectValue(field.getName(), errorCode, message);
             }
         });
     }
 
     public static interface PostHandler {
-        public void postHanle(String errorCode, String message);
+        void postHandle(String errorCode, String message);
     }
     /**
      *

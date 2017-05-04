@@ -14,7 +14,7 @@ import java.util.List;
 @Service("userService")
 @Transactional
 public class UserService {
-    @Autowired
+    @Autowired(required = false)
     private UserDao userDao;
 
     public int saveUser(User user) {

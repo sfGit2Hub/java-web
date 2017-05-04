@@ -13,7 +13,7 @@ import java.util.Date;
  * 处理 DateString注解的问题
  */
 @CustomerRule
-public class DateValidatorRule extends AbastractCustomerValidatorRule {
+public class DateValidatorRule extends AbstractCustomerValidatorRule {
     @Override
     public boolean support(Annotation annotation) {
         return annotation instanceof DateString;
@@ -23,7 +23,7 @@ public class DateValidatorRule extends AbastractCustomerValidatorRule {
     public void validProperty(Annotation annotation, Object property, PostHandler postHandler) {
         DateString ds = (DateString) annotation;
         if (this.parse(ds.pattern(), (String) property) == null) {
-            postHandler.postHanle(ds.errorCode(), ds.message());
+            postHandler.postHandle(ds.errorCode(), ds.message());
         }
     }
 
