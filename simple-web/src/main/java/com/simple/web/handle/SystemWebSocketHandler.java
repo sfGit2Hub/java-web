@@ -10,7 +10,7 @@ import java.util.Date;
  * Created by Administrator on 2017/5/9.
  */
 public class SystemWebSocketHandler implements WebSocketHandler {
-    private static final ArrayList<WebSocketSession> users = new ArrayList<WebSocketSession>();;
+    private static final ArrayList<WebSocketSession> users = new ArrayList<>();
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         System.out.println("ConnectionEstablished");
@@ -23,8 +23,8 @@ public class SystemWebSocketHandler implements WebSocketHandler {
     @Override
     public void handleMessage(WebSocketSession session, WebSocketMessage<?> message) throws Exception {
         System.out.println("handleMessage" + message.toString());
-        //sendMessageToUsers();
-        session.sendMessage(new TextMessage(new Date() + ""));
+        sendMessageToUsers(new TextMessage(new Date() + ""));
+//        session.sendMessage(new TextMessage(new Date() + ""));
     }
 
     @Override
