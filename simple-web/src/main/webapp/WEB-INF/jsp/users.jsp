@@ -4,8 +4,10 @@
 
 <script type="text/javascript">
     var ws = null;
-    var url = null;
+    var url = "/webSocketServer";
     var transports = [];
+
+    var client = new WebSocket(url, "ws");
 
     function setConnected(connected) {
         document.getElementById('connect').disabled = connected;
@@ -126,6 +128,7 @@
                 <option value="iframe-htmlfile">iframe-htmlfile</option>
             </select>
         </div>
+
         <div>
             <button id="connect" onclick="connect();">Connect</button>
             <button id="disconnect" disabled="disabled" onclick="disconnect();">Disconnect</button>
