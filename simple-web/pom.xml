@@ -10,11 +10,34 @@
     <properties>
         <spring.version>4.2.5.RELEASE</spring.version>
         <mybatis.version>3.2.6</mybatis.version>
+
+        <jetty.version>9.4.2.v20170220</jetty.version>
+        <jetty.port>8022</jetty.port>
+        <jetty.sslPort>8422</jetty.sslPort>
+        <jetty.stop.port>8862</jetty.stop.port>
     </properties>
 
     <build>
         <finalName>simple-web</finalName>
         <plugins>
+            <plugin>
+                <groupId>org.eclipse.jetty</groupId>
+                <artifactId>jetty-maven-plugin</artifactId>
+                <version>${jetty.version}</version>
+                <configuration>
+                    <webAppConfig>
+                        <!--<contextPath>/${war.name}</contextPath>-->
+                        <!--<defaultsDescriptor>etc/webdefault.xml</defaultsDescriptor>-->
+                    </webAppConfig>
+                    <webAppSourceDirectory>${project.basedir}/src/main/webapp</webAppSourceDirectory>
+                    <scanIntervalSeconds>1</scanIntervalSeconds>
+                    <httpConnector>
+                        <port>${jetty.port}</port>
+                    </httpConnector>
+                    <stopKey>exit</stopKey>
+                    <stopPort>${jetty.stop.port}</stopPort>
+                </configuration>
+            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-war-plugin</artifactId>
